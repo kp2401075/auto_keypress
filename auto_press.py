@@ -1,13 +1,11 @@
 from pynput.keyboard import Key, Controller
 import time
 
-
-
 keyboard = Controller()
-
+# press key takes key as argument and presses it
 def press_key(key):
     # For limiting the frequency of press
-    # time.sleep(1)
+    time.sleep(1)
     ## cheking of keypress is not a charachter then apply special format.
     if len(key) > 1:
         key = getattr(Key,key)
@@ -18,12 +16,12 @@ def press_key(key):
         keyboard.press(key)
         keyboard.release(key)
 
-
 def main():
+    # Delay to give time for switching to intended window
     time.sleep(10)
+    # for loop for repeaing the key press
     for i in range(10):
         press_key('right')
 
-
-
-main()
+if __name__ == "__main__":
+    main()
